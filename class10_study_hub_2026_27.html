@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Class 10 Study Hub · 2026–27</title>
+<style>
+:root{--ink:#243047;--muted:#68758b;--bg:#f4f7fc;--card:#fff;--accent:#5267d8;--line:#e3e8f1}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(120deg,#5267d8,#7a8bea);color:#fff;padding:25px 18px}.wrap{max-width:1000px;margin:auto}
+h1{margin:0 0 7px;font-size:clamp(27px,5vw,38px)}header p{margin:0;line-height:1.5}
+nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}nav button{background:#ffffff24;border:1px solid #ffffff70;color:#fff}nav button.active{background:#fff;color:#485ac4}
+button,.linkbtn{border:0;background:var(--accent);color:white;border-radius:9px;padding:10px 13px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;font-size:13px}
+button:hover,.linkbtn:hover{filter:brightness(.96)}main{padding:22px 16px 45px}.page{display:none}.page.active{display:block}
+.page-title{margin:5px 0;font-size:25px}.subline{color:var(--muted);margin:0 0 18px;font-size:14px;line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.subject-card,.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 4px 15px #27365a08}
+.subject-card h3{margin:0 0 7px;font-size:18px}.subject-card p{color:var(--muted);font-size:13px;line-height:1.45;margin:0 0 12px}
+.subject-card button{width:100%}.subject-detail{display:none;margin-top:16px}.subject-detail h3{margin:0 0 8px}
+.resource-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.resource-row .linkbtn{font-size:12px}
+.note{font-size:12px;color:var(--muted);line-height:1.5;margin:12px 0 0}
+.panel{margin:15px 0}.panel h3{margin:0 0 12px}
+.task-head,.task-row{display:grid;grid-template-columns:1fr 2fr 65px;gap:10px;align-items:center}
+.task-head{font-weight:700;font-size:13px;color:var(--muted);padding:8px 5px;border-bottom:1px solid var(--line)}
+.task-row{min-height:48px;border-bottom:1px solid var(--line);padding:5px}
+.write-cell{min-height:32px;padding:7px 8px;border:1px solid #d9dfeb;border-radius:7px;background:#fff;outline:none;font-size:14px;overflow-wrap:anywhere}
+.write-cell:focus{border-color:var(--accent);box-shadow:0 0 0 2px #5267d822}
+.tick{text-align:center}.tick input{width:18px;height:18px}
+.timerbox{text-align:center}#clock{font-size:clamp(42px,9vw,62px);font-weight:700;font-variant-numeric:tabular-nums;margin:8px 0 14px}
+.timer-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.secondary{background:#edf0f8;color:#44516a}
+.timer-settings{display:flex;justify-content:center;gap:9px;align-items:center;flex-wrap:wrap;margin-top:14px}
+input[type=number]{width:90px;padding:10px;border:1px solid #d9dfeb;border-radius:8px;font-size:15px}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.check-column{border:1px solid var(--line);border-radius:10px;padding:12px}
+.check-column h4{margin:0 0 8px}.check-row{display:flex;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.check-row:last-child{border:0}.check-row input{width:17px;height:17px}.check-row .write-cell{flex:1;min-height:30px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+@media(max-width:600px){.grid,.check-grid{grid-template-columns:1fr}.task-head,.task-row{grid-template-columns:1fr 1.5fr 42px}}
+@media print{body{background:white}header{background:white;color:#222;padding:10px 0}nav{display:none}main{padding:0}.page{display:block!important;break-after:page;page-break-after:always}.page:last-child{break-after:auto}.subject-card,.panel{box-shadow:none;break-inside:avoid}button{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>📚 Class 10 Study Hub</h1>
+<p>CBSE Class X · Academic session 2026–27</p>
+<nav>
+<button class="active" data-page="subjectsPage">Page 1 · Subjects</button>
+<button data-page="plannerPage">Page 2 · Study Planner</button>
+</nav></div></header>
+<main class="wrap">
+<section class="page active" id="subjectsPage">
+<h2 class="page-title">My subjects</h2>
+<p class="subline">Choose a subject, then open its official NCERT or CBSE resources. These are lightweight links, not embedded PDFs, so the website stays small.</p>
+<div class="grid">
+<article class="subject-card"><h3>📐 Mathematics</h3><p>Choose Basic or Standard as applicable.</p><button onclick="openSubject('Mathematics')">Open Mathematics</button></article>
+<article class="subject-card"><h3>🔬 Science</h3><p>Physics, Chemistry and Biology.</p><button onclick="openSubject('Science')">Open Science</button></article>
+<article class="subject-card"><h3>🌍 Social Science</h3><p>History, Geography, Political Science and Economics.</p><button onclick="openSubject('Social Science')">Open Social Science</button></article>
+<article class="subject-card"><h3>📖 English</h3><p>Language and Literature or Communicative.</p><button onclick="openSubject('English')">Open English</button></article>
+<article class="subject-card"><h3>🪷 Hindi</h3><p>Hindi Course A or Course B.</p><button onclick="openSubject('Hindi')">Open Hindi</button></article>
+<article class="subject-card"><h3>💻 AI / Computer</h3><p>Optional skill / academic subject resources.</p><button onclick="openSubject('AI / Computer')">Open AI / Computer</button></article>
+</div>
+<div class="panel subject-detail" id="subjectDetail">
+<h3 id="detailTitle">Subject resources</h3>
+<p class="note">Select the official textbook or CBSE practice resource below. CBSE CFPQ booklets are available for selected subjects; the CBSE Class X SQP page lists the 2026–27 sample papers and marking schemes.</p>
+<div class="resource-row">
+<a class="linkbtn" href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener">NCERT Textbook</a>
+<a class="linkbtn" href="https://cbseacademic.nic.in/cbe/assessment.html" target="_blank" rel="noopener">CBSE Question Bank / CFPQ</a>
+<a class="linkbtn" href="https://cbseacademic.nic.in/sqp_classx_2026-27.html" target="_blank" rel="noopener">CBSE Class 10 SQP 2026–27</a>
+<a class="linkbtn" href="https://cbseacademic.nic.in/curriculum_2027.html" target="_blank" rel="noopener">CBSE Class 10 Curriculum</a>
+</div>
+<p class="note">For Mathematics, choose the correct Basic / Standard paper. For English and Hindi, choose your course. The CBSE resource pages may open in a new browser tab.</p>
+</div>
+</section>
+
+<section class="page" id="plannerPage">
+<h2 class="page-title">Personal study planner</h2>
+<p class="subline">Tap a blank writing space and type. You can also print this page and write by hand.</p>
+<section class="panel">
+<h3>Personal study task list</h3>
+<div class="task-head"><div>Subject</div><div>Task / chapter</div><div class="tick">Done</div></div>
+<div id="taskRows"></div>
+</section>
+<section class="panel timerbox">
+<h3>Focus timer</h3><div id="clock">25:00</div>
+<div class="timer-controls"><button onclick="startTimer()">Start</button><button class="secondary" onclick="pauseTimer()">Pause</button><button class="secondary" onclick="resetTimer()">Reset</button></div>
+<div class="timer-settings"><span class="note">Quick select:</span><button class="secondary" onclick="setTimer(15)">15 min</button><button class="secondary" onclick="setTimer(25)">25 min</button><button class="secondary" onclick="setTimer(45)">45 min</button><span class="note">Custom:</span><input id="customMinutes" type="number" min="1" max="999" value="25" aria-label="Custom minutes"><button onclick="useCustom()">Set</button></div>
+<p class="note">Set a time, start, pause whenever needed, or reset and choose another duration.</p>
+</section>
+<section class="panel">
+<h3>Daily study checklist</h3><p class="note">Type a subject or task on each line, then tick it when complete.</p>
+<div class="check-grid"><div class="check-column"><h4>Column 1</h4><div id="checkLeft"></div></div><div class="check-column"><h4>Column 2</h4><div id="checkRight"></div></div></div>
+</section>
+</section>
+</main>
+<footer>Class 10 Study Hub · Learn a little, practise a little, revise regularly.</footer>
+<script>
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ b.classList.add('active');document.getElementById(b.dataset.page).classList.add('active');
+}));
+function openSubject(name){document.getElementById('detailTitle').textContent=name+' · Study resources';document.getElementById('subjectDetail').style.display='block';document.getElementById('subjectDetail').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function editableCell(label){const d=document.createElement('div');d.className='write-cell';d.contentEditable='true';d.setAttribute('role','textbox');d.setAttribute('aria-label',label);d.setAttribute('data-placeholder',label);return d;}
+const rows=document.getElementById('taskRows');
+for(let i=1;i<=9;i++){const r=document.createElement('div');r.className='task-row';r.append(editableCell('Type subject'),editableCell('Type task or chapter'));const c=document.createElement('div');c.className='tick';const cb=document.createElement('input');cb.type='checkbox';cb.setAttribute('aria-label','Mark task complete');c.append(cb);r.append(c);rows.append(r);}
+function makeChecklist(id,n){const root=document.getElementById(id);for(let i=0;i<n;i++){const r=document.createElement('div');r.className='check-row';const cb=document.createElement('input');cb.type='checkbox';cb.setAttribute('aria-label','Mark task complete');r.append(cb,editableCell('Type subject or daily task'));root.append(r);}}
+makeChecklist('checkLeft',7);makeChecklist('checkRight',7);
+let remaining=1500,interval=null;const clock=document.getElementById('clock');
+function showTime(){clock.textContent=String(Math.floor(remaining/60)).padStart(2,'0')+':'+String(remaining%60).padStart(2,'0');}
+function pauseTimer(){if(interval){clearInterval(interval);interval=null;}}
+function setTimer(m){pauseTimer();remaining=m*60;document.getElementById('customMinutes').value=m;showTime();}
+function useCustom(){const m=Number(document.getElementById('customMinutes').value);if(Number.isInteger(m)&&m>0&&m<=999)setTimer(m);else alert('Enter a whole number from 1 to 999.');}
+function startTimer(){if(interval||remaining<=0)return;interval=setInterval(()=>{remaining--;showTime();if(remaining<=0){pauseTimer();alert('Focus session complete!');}},1000);}
+function resetTimer(){const m=Number(document.getElementById('customMinutes').value);pauseTimer();remaining=(Number.isInteger(m)&&m>0?m:25)*60;showTime();}
+showTime();
+</script>
+</body></html>
